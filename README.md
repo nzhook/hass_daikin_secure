@@ -1,5 +1,5 @@
 # hass_daikin_secure
-A copy of the Home Assistant Daikin component that works with a BRP072C42 (over https)
+A copy of the Home Assistant Daikin component that works with a Daikin BRP072C42 WIFI controller (over https)
 
 Original component code:
 https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/daikin
@@ -10,23 +10,25 @@ https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/componen
 1. Download the custom_component/daikin directory and place it into your custom_component folder - note: this will override the existing
 component.
 
-2. Grab the 13-digit *KEY* from the sticker on the controller (Has SSID, KEY, MAC and S.N). Will look like: 0103056789012
+2. Grab the 13-digit *KEY* from the sticker on the controller (Lists SSID, KEY, MAC and S.N). Will look like: 0103056789012
 
 3. Register the hardcoded UUID (or change self.uuid in appliance.py) with your controller using that key as the pass phrase
-``
+```
 curl --insecure -H "X-Daikin-uuid: d53b108a0e5e4fb5ab94a343b7d4b74a" --head "https://[IP]/common/register_terminal?key=[KEY]"
-``
+```
+
 eg.
-``
+```
 curl --insecure -H "X-Daikin-uuid: d53b108a0e5e4fb5ab94a343b7d4b74a" --head "https://192.168.1.20/common/register_terminal?key=0103056789012"
-``
+```
 
 You should see output similar to this:
-``
+```
 HTTP/1.0 200 OK
 Content-Length: 6
 Content-Type: text/plain
-``
+```
+
 (if you have the wrong KEY you will get 403 HTTP_FORBIDDEN instead)
 
 
@@ -38,9 +40,9 @@ curl --insecure -H "X-Daikin-uuid: d53b108a0e5e4fb5ab94a343b7d4b74a" --head "htt
 
 5. Restart home-assistant and the climate devices should now show up (See Configuration -> Integrations), if not you may need to
   add:
-``
+```
 daikin:
-``
+```
 to the configuration.yaml
 
 Refer to the Home-Assistant Daikin component docs for detail on how to use the component
