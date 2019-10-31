@@ -156,6 +156,12 @@ class Appliance(entity.Entity):
         """Init the pydaikin appliance, representing one Daikin device."""
         entity.Entity.__init__(self)
         self._airbase = False
+        # self._protocol = "http"
+        self._protocol = "https"
+        # TODO Generate this or force it to be passed in
+        # import uuid
+        # uuid.uuid4().hex
+        self.uuid = "d53b108a0e5e4fb5ab94a343b7d4b74a"
         self._fan_rate = TRANSLATIONS['f_rate']
         self.session = session
 
@@ -242,7 +248,7 @@ class Appliance(entity.Entity):
         if self._airbase:
             resource = 'skyfi/%s' % resource
         async with self.session.get(
-                'http://%s/%s' % (self.ip, resource)) as resp:
+                '%s://%s/%s' % (self._protocol, self.ip, resource), headers={"X-Daikin-uuid": self.uuid}, ssl=False) as resp:
             if resp.status == 200:
                 return self.parse_response(await resp.text())
             return {}

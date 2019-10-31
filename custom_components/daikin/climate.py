@@ -91,7 +91,7 @@ class DaikinClimate(ClimateDevice):
 
     def __init__(self, api):
         """Initialize the climate device."""
-        from pydaikin import appliance
+        from . import appliance
 
         self._api = api
         self._list = {
