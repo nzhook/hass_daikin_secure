@@ -32,7 +32,7 @@ class FlowHandler(config_entries.ConfigFlow):
 
     async def _create_device(self, host):
         """Create device."""
-        from pydaikin.appliance import Appliance
+        from .appliance import Appliance
 
         try:
             device = Appliance(

@@ -87,7 +87,7 @@ async def async_unload_entry(hass, config_entry):
 
 async def daikin_api_setup(hass, host):
     """Create a Daikin instance only once."""
-    from pydaikin.appliance import Appliance
+    from .appliance import Appliance
 
     session = hass.helpers.aiohttp_client.async_get_clientsession()
     try:
