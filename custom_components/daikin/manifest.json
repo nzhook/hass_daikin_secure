@@ -1,12 +1,14 @@
 {
   "domain": "daikin",
   "name": "Daikin",
+  "version": "0.0.5",
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/daikin",
   "requirements": [
     "pydaikin==1.6.1"
   ],
   "dependencies": [],
+  "iot_class": "local_polling",
   "codeowners": [
     "@fredrike",
     "@rofrantz",
