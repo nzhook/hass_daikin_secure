@@ -1,11 +1,15 @@
-# hass_daikin_secure
+
+# Notice
+The BRP072C42 WIFI controller now works in the [Daikin integration](https://www.home-assistant.io/integrations/daikin/) built into Home Assistant and includes additional features such config flow and energy monitoring which were not available when this integration was copied. 
+--
+
+## hass_daikin_secure
 A copy of the Home Assistant Daikin component that works with a Daikin BRP072C42 WIFI controller (over https)
 
 Original component code:
 https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/daikin
 
-
-# Usage
+### Usage
 
 1. Download the custom_component/daikin directory and place it into your custom_component folder - note: this will override the existing
 component.
